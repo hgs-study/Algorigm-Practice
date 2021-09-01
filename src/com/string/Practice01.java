@@ -35,8 +35,6 @@ public class Practice01 {
             if(c == t)
                 answer++;
         }
-
-
         return answer;
     }
 
