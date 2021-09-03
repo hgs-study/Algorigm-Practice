@@ -34,13 +34,10 @@ public class Practice03 {
     static int problem, maxTime,answer = 0;
 
     private void dfs(int depth, int sumScore,int sumTime ,int[] scores, int[] times){
-        if(depth == problem)
-            return;
-
         if(maxTime < sumTime)
             return;
 
-        if(sumTime == maxTime){
+        if(depth == problem){
             answer = Math.max(answer, sumScore);
         }else {
             dfs(depth + 1, sumScore + scores[depth], sumTime + times[depth], scores, times);
