@@ -27,16 +27,8 @@ import java.util.Stack;
 public class Practice04 {
 
     private void solution(String[] words){
-        Stack stack = new Stack();
-
         for (int i = 0; i < words.length; i++) {
-            for (int j = 0; j < words[i].toCharArray().length; j++) {
-                stack.add(words[i].toCharArray()[j]);
-            }
-            while (!stack.isEmpty()){
-                System.out.print(stack.pop());
-            }
-            System.out.println();
+            System.out.println(new StringBuilder(words[i]).reverse().toString());
         }
     }
 
