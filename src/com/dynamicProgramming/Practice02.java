@@ -21,25 +21,45 @@ import java.util.Scanner;
 //예시 출력 1
 //34
 public class Practice02 {
-    private int sum = 0;
+//    private int sum = 0;
+//
+//    public void dfs(int number,int depth){
+//        if(depth >= number + 1) {
+//            sum++;
+//            return;
+//        }
+//        dfs(number, depth +1);
+//
+//        if(depth != number)
+//            dfs(number, depth +2);
+//    }
+//
+//    public static void main(String[] args) {
+//        Practice02 practice02 = new Practice02();
+//        Scanner scanner = new Scanner(System.in);
+//        int number = scanner.nextInt();
+//
+//        practice02.dfs(number, 0);
+//        System.out.println(practice02.sum);
+//    }
 
-    public void dfs(int number,int depth){
-        if(depth >= number + 1) {
-            sum++;
-            return;
+    //dp
+    private static int[] dy;
+
+    private int solution(int n){
+        dy[1] = 1;
+        dy[2] = 2;
+        for (int i = 3; i <= n; i++) {
+            dy[i] = dy[i-1] + dy[i-2];
         }
-        dfs(number, depth +1);
-
-        if(depth != number)
-            dfs(number, depth +2);
+        return dy[n];
     }
 
     public static void main(String[] args) {
         Practice02 practice02 = new Practice02();
         Scanner scanner = new Scanner(System.in);
         int number = scanner.nextInt();
-
-        practice02.dfs(number, 0);
-        System.out.println(practice02.sum);
+        dy = new int[number +2];
+        System.out.println(practice02.solution(number + 1));
     }
 }
